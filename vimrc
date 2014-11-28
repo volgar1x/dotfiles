@@ -1,34 +1,40 @@
 set nocompatible " be iMproved
 filetype off " required!
- 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
- 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'Raimondi/delimitMate'
-Bundle 'bling/vim-airline'
-Bundle 'junegunn/seoul256.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'vim-niji'
-Bundle 'maxbrunsfeld/vim-emacs-bindings'
-Bundle 'scilab.vim'
-Bundle 'whatyouhide/vim-gotham'
-Bundle 'jimenezrick/vimerl'
-Bundle 'ehamberg/vim-cute-erlang'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mbbx6spp/vim-rebar'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'mattreduce/vim-mix'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/nerdcommenter'
+let g:plug_threads = 8
+call plug#begin('~/.vim/plugged')
+ 
+Plug 'tpope/vim-fugitive'
+Plug 'nanotech/jellybeans.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Raimondi/delimitMate'
+Plug 'bling/vim-airline'
+Plug 'junegunn/seoul256.vim'
+Plug 'mattn/emmet-vim'
+"Plug 'Shougo/neocomplcache.vim'
+Plug 'vim-niji'
+"Plug 'maxbrunsfeld/vim-emacs-bindings'
+Plug 'scilab.vim'
+Plug 'whatyouhide/vim-gotham'
+Plug 'jimenezrick/vimerl'
+Plug 'ehamberg/vim-cute-erlang'
+Plug 'kien/ctrlp.vim'
+Plug 'mbbx6spp/vim-rebar'
+Plug 'elixir-lang/vim-elixir'
+Plug 'mattreduce/vim-mix'
+Plug 'Lokaltog/vim-easymotion'
+"Plug 'scrooloose/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rails'
+"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-bundler'
+"Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tacahiroy/ctrlp-funky'
+"Plug 'Valloric/YouCompleteMe'
+
+call plug#end()
 
 filetype plugin indent on " required!
 
@@ -49,7 +55,7 @@ set encoding=UTF-8
 
 autocmd FileType erlang set tabstop=4|set shiftwidth=4
 
-let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_no_startup_for_diff=1
 let g:nerdtree_tabs_smart_startup_focus=1
 let g:NERDTreeShowBookmarks=1
@@ -57,6 +63,7 @@ let g:NERDTreeChDirMode=2 " change CWD whenever the tree root is changed
 let g:NERDTreeMouseMode=2 " need only one click to open directory by double click to open file
 let g:NERDTreeWinSize=28  " default 31
 let g:NERDTreeIgnore=['_build', '\.sublime-project$', '\.sublime-workspace$']
+nmap <C-m> :NERDTreeToggle<CR>
 
 let g:user_emmet_leader_key='<C-J>'
 
@@ -65,6 +72,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|beam)$',
   \ }
+let g:ctrlp_extensions = ['funky']
+imap <C-n> <Esc>:CtrlPFunky<CR>
+nmap <C-n> :CtrlPFunky<CR>
 
 let g:neocomplcache_enable_at_startup=1
 
@@ -95,3 +105,6 @@ nmap <C-Down> <C-w>j
 
 imap <C-Up> <Esc><C-w>ki
 nmap <C-Up> <C-w>k
+
+imap <C-t> <Esc>:tabnew<CR>i
+nmap <C-t> :tabnew<CR>
