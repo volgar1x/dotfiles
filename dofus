@@ -1,0 +1,97 @@
+#!/bin/bash
+
+base="/opt/dofus"
+
+function dofus_exists() {
+	test -d "$base/dofus-2.$1-linux"
+}
+
+function dofus_list() {
+	for file in $(ls "$base"); do
+		if [ -d "$base/$file" ]; then
+			echo "$file"
+		fi
+	done
+}
+
+function dofus_start() {
+	cmd="$(dofus_path "$1")/bin/Dofus"
+
+	## Dofus 2.20 uses FR lang by default
+	## but I only install EN lang
+	if [[ $1 -ge "20" ]]; then
+		cmd="$cmd --lang=en"
+	fi
+
+	if [[ -n "$DOFUS_LIBINJECTOR" ]]; then
+		export LD_PRELOAD="$base/libdofusinjector.so"
+		echo "using $base/libdofusinjector.so"
+	fi
+
+	$cmd > /dev/null 2>&1 &
+}
+
+function dofus_path() {
+	echo "$base/dofus-2.$1-linux"
+}
+
+function actions() {
+	echo "   - list       print all dofus installation"
+	echo "   - start      start dofus given an optional version"
+	echo "   - path       print path of one dofus installation given an optional version"
+	echo "   - exists     test if dofus installation exists given an optional version"
+	echo "   - config     edit dofus configuration given an optional version"
+}
+
+function dofus_config() {
+	editor "$(dofus_path "$1")/share/config.xml"
+}
+
+function print_err_and_exit() {
+	echo "$1, here is the available actions"
+	actions
+	exit 1
+}
+
+if [ "$#" -ge 1 ]; then
+	case "$1" in
+	'list') action='list' ;;
+	'start') action='start' ;;
+	'path') action='path' ;;
+	'exists') action='exists' ;;
+	'config') action='config' ;;
+	*) print_err_and_exit "unknown action $1"
+	esac
+
+	shift
+fi
+
+if [ "$#" -ge 1 ]; then
+	if $(dofus_exists "$1"); then
+		version="$1"
+	else
+		print_err_and_exit "dofus 2.$1 does not exist"
+	fi
+	shift
+fi
+
+if [ -z "$action" ]; then
+	action='start'
+fi
+
+if [ -z "$version" ]; then
+	if [ -z "$DOFUS_VERSION" ]; then
+		print_err_and_exit 'cannot get dofus version through CLI arg nor $DOFUS_VERSION var env'
+	fi
+	version="$DOFUS_VERSION"
+fi
+
+case $action in
+'list') dofus_list ;;
+'start') dofus_start $version ;;
+'path') dofus_path $version ;;
+'exists') dofus_exists $version ;;
+'config') dofus_config $version ;;
+*) print_err_and_exit "unknown action $1"
+esac
+
