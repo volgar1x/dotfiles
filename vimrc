@@ -37,6 +37,8 @@ Plug 'groovy.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'GEverding/vim-hocon'
 Plug 'junegunn/vim-easy-align'
+Plug 'mru.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -57,7 +59,6 @@ set tabstop=2
 set shiftwidth=2
 set encoding=UTF-8
 
-autocmd FileType erlang set tabstop=4|set shiftwidth=4
 
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_no_startup_for_diff=1
@@ -74,11 +75,11 @@ let g:user_emmet_leader_key='<C-J>'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|beam)$',
+  \ 'file': '\v\.(exe|so|dll|beam|class)$',
   \ }
 let g:ctrlp_extensions = ['funky']
-imap <C-n> <Esc>:CtrlPFunky<CR>
-nmap <C-n> :CtrlPFunky<CR>
+imap <C-l> <Esc>:CtrlPFunky<CR>
+nmap <C-l> :CtrlPFunky<CR>
 
 let g:neocomplcache_enable_at_startup=1
 
@@ -87,8 +88,8 @@ nmap <C-k> dd
 imap <C-k> <Esc>ddi
 
 " duplicate current line
-nmap <C-d> yyp
-imap <C-d> <Esc>yypi
+nmap <C-y> yyp
+imap <C-y> <Esc>yypi
 
 " revert last change
 nmap <C-z> u
@@ -126,10 +127,16 @@ imap <C-t> <Esc>:tabnew<CR>i
 nmap <C-t> :tabnew<CR>
 
 " vim-commentary custom shortcuts
-nmap <M-;> gcc
-vmap <M-;> gc
-imap <M-;> <Esc>gcci
+" nmap <C-=> gcc
+" vmap <C-=> gc
+" imap <C-=> <Esc>gcci
 
 " set default comment string
-autocmd FileType groovy set commentstring=//%s 
+autocmd FileType      groovy set commentstring=//%s
 autocmd FileType jproperties set commentstring=#%s
+
+" set default indentations
+autocmd FileType erlang set tabstop=4|set shiftwidth=4
+autocmd FileType   java set tabstop=4|set shiftwidth=4
+autocmd FileType groovy set tabstop=4|set shiftwidth=4
+
