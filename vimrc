@@ -33,6 +33,10 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'tacahiroy/ctrlp-funky'
 "Plug 'Valloric/YouCompleteMe'
+Plug 'groovy.vim'
+Plug 'tfnico/vim-gradle'
+Plug 'GEverding/vim-hocon'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -78,33 +82,54 @@ nmap <C-n> :CtrlPFunky<CR>
 
 let g:neocomplcache_enable_at_startup=1
 
-"iunmap <C-k>
+" delete current line
 nmap <C-k> dd
 imap <C-k> <Esc>ddi
 
+" duplicate current line
+nmap <C-d> yyp
+imap <C-d> <Esc>yypi
+
+" revert last change
 nmap <C-z> u
 imap <C-z> <Esc>ui
 
+" Go to right tab
 imap <M-Right> <Esc>:tabnext<CR>i
 nmap <M-Right> :tabnext<CR>
 
+" Go to left tab
 imap <M-Left> <Esc>:tabprevious<CR>i
 nmap <M-Left> :tabprevious<CR>
 
+" Move current line up or downwards
 imap <M-Up> <Esc>:m .-2<CR>i
 imap <M-Down> <Esc>:m .+1<CR>i
 
+" Go to left window
 imap <C-Left> <Esc><C-w>hi
 nmap <C-Left> <C-w>h
 
+" Go to right window
 imap <C-Right> <Esc><C-w>li
 nmap <C-Right> <C-w>l
 
+" Go to down window
 imap <C-Down> <Esc><C-w>ji
 nmap <C-Down> <C-w>j
 
+" Go to up window
 imap <C-Up> <Esc><C-w>ki
 nmap <C-Up> <C-w>k
 
 imap <C-t> <Esc>:tabnew<CR>i
 nmap <C-t> :tabnew<CR>
+
+" vim-commentary custom shortcuts
+nmap <M-;> gcc
+vmap <M-;> gc
+imap <M-;> <Esc>gcci
+
+" set default comment string
+autocmd FileType groovy set commentstring=//%s 
+autocmd FileType jproperties set commentstring=#%s
