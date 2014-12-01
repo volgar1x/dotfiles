@@ -39,6 +39,10 @@ Plug 'GEverding/vim-hocon'
 Plug 'junegunn/vim-easy-align'
 Plug 'mru.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-addon-mw-utils'
+Plug 'tlib'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -60,14 +64,14 @@ set shiftwidth=2
 set encoding=UTF-8
 
 
-let g:nerdtree_tabs_open_on_console_startup=0
+let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_no_startup_for_diff=1
 let g:nerdtree_tabs_smart_startup_focus=1
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeChDirMode=2 " change CWD whenever the tree root is changed
 let g:NERDTreeMouseMode=2 " need only one click to open directory by double click to open file
 let g:NERDTreeWinSize=28  " default 31
-let g:NERDTreeIgnore=['_build', '\.sublime-project$', '\.sublime-workspace$']
+let g:NERDTreeIgnore=['deps', '_build', '\.sublime-project$', '\.sublime-workspace$']
 nmap <C-m> :NERDTreeToggle<CR>
 
 let g:user_emmet_leader_key='<C-J>'
