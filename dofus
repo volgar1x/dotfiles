@@ -1,6 +1,10 @@
 #!/bin/bash
 
-base="/opt/dofus"
+if [[ -z "$DOFUS_INSTALL_BASE" ]]; then
+	echo "You must set \$DOFUS_INSTALL_BASE first."
+	exit 1
+fi
+base="$DOFUS_INSTALL_BASE"
 
 function dofus_exists() {
 	test -d "$base/dofus-2.$1-linux"
