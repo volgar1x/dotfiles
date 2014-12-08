@@ -8,41 +8,39 @@ Plug 'tpope/vim-fugitive'
 Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Raimondi/delimitMate'
 Plug 'bling/vim-airline'
 Plug 'junegunn/seoul256.vim'
 Plug 'mattn/emmet-vim'
-"Plug 'Shougo/neocomplcache.vim'
-Plug 'vim-niji'
-"Plug 'maxbrunsfeld/vim-emacs-bindings'
+Plug 'amdt/vim-niji'
 Plug 'scilab.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'jimenezrick/vimerl'
 Plug 'ehamberg/vim-cute-erlang'
 Plug 'kien/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'mbbx6spp/vim-rebar'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
 Plug 'Lokaltog/vim-easymotion'
-"Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rails'
-"Plug 'tpope/vim-surround'
 Plug 'tpope/vim-bundler'
-"Plug 'cohama/lexima.vim'
+Plug 'Blackrush/lexima.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tacahiroy/ctrlp-funky'
-"Plug 'Valloric/YouCompleteMe'
 Plug 'groovy.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'GEverding/vim-hocon'
 Plug 'junegunn/vim-easy-align'
 Plug 'mru.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-addon-mw-utils'
-Plug 'tlib'
+Plug 'vim-addon-mw-utils' " required by vim-snipmate
+Plug 'tlib'               " required by vim-snipmate
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'vim-misc'           " required by vim-session
+Plug 'xolox/vim-session'
+Plug 'Shougo/vimproc'     " required by vimshell.vim
+Plug 'Shougo/vimshell.vim'
 
 call plug#end()
 
@@ -64,7 +62,7 @@ set shiftwidth=2
 set encoding=UTF-8
 
 
-let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_no_startup_for_diff=1
 let g:nerdtree_tabs_smart_startup_focus=1
 let g:NERDTreeShowBookmarks=1
@@ -72,7 +70,7 @@ let g:NERDTreeChDirMode=2 " change CWD whenever the tree root is changed
 let g:NERDTreeMouseMode=2 " need only one click to open directory by double click to open file
 let g:NERDTreeWinSize=28  " default 31
 let g:NERDTreeIgnore=['deps', '_build', '\.sublime-project$', '\.sublime-workspace$']
-nmap <C-m> :NERDTreeToggle<CR>
+nmap <C-m> <Plug>NERDTreeTabsToggle<CR>
 
 let g:user_emmet_leader_key='<C-J>'
 
@@ -86,6 +84,9 @@ imap <C-l> <Esc>:CtrlPFunky<CR>
 nmap <C-l> :CtrlPFunky<CR>
 
 let g:neocomplcache_enable_at_startup=1
+
+let g:session_autoload='yes'
+let g:session_autosave='yes'
 
 " delete current line
 nmap <C-k> dd

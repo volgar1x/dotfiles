@@ -23,3 +23,6 @@ export DOFUS_VERSION=21
 ## Ruby version manager
 export PATH="$PATH:$HOME/.rvm/bin"
 source "$HOME/.rvm/scripts/rvm"
+
+## Aliases
+alias o='gnome-open'
