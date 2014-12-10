@@ -37,8 +37,8 @@ Plug 'vim-addon-mw-utils' " required by vim-snipmate
 Plug 'tlib'               " required by vim-snipmate
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'vim-misc'           " required by vim-session
-Plug 'xolox/vim-session'
+" Plug 'vim-misc'           " required by vim-session
+" Plug 'xolox/vim-session'
 Plug 'Shougo/vimproc'     " required by vimshell.vim
 Plug 'Shougo/vimshell.vim'
 
@@ -135,6 +135,9 @@ nmap <C-t> :tabnew<CR>
 " nmap <C-=> gcc
 " vmap <C-=> gc
 " imap <C-=> <Esc>gcci
+
+nmap <C-o> :tabnew<CR>:VimShell<CR>
+imap <C-o> <Esc><C-o>
 
 " set default comment string
 autocmd FileType      groovy set commentstring=//%s
