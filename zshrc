@@ -2,7 +2,7 @@
 ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="amuse"
 _Z_DATA="$HOME/.zdata"
-plugins=(git git-flow gradle zsh-syntax-highlighting z)
+plugins=(git git-flow gradle zsh-syntax-highlighting z node npm)
 source $ZSH/oh-my-zsh.sh
 
 [[ -d "$HOME/.bin" ]] && export PATH="$PATH:$HOME/.bin"
