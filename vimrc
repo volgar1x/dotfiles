@@ -10,6 +10,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'bling/vim-airline'
 Plug 'junegunn/seoul256.vim'
+Plug 'ajh17/Spacegray.vim'
 Plug 'mattn/emmet-vim'
 Plug 'amdt/vim-niji'
 Plug 'scilab.vim'
@@ -41,6 +42,12 @@ Plug 'honza/vim-snippets'
 " Plug 'xolox/vim-session'
 Plug 'Shougo/vimproc'     " required by vimshell.vim
 Plug 'Shougo/vimshell.vim'
+Plug 'mpollmeier/vim-scalaConceal'
+Plug 'derekwyatt/vim-scala'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mtscout6/vim-cjsx'
 
 call plug#end()
 
@@ -48,12 +55,8 @@ filetype plugin indent on " required!
 
 set laststatus=2
 let g:airline_powerline_fonts=1
-let g:airline_theme="bubblegum"
 
 syntax on
-colorscheme seoul256
-let g:seoul256_background=233
-set background=dark
 set mouse=a
 set nu
 set smartindent
@@ -61,6 +64,19 @@ set tabstop=2
 set shiftwidth=2
 set encoding=UTF-8
 
+if has("gui_running")
+	set t_md=
+	set go-=TrL
+	set guifont="Meslo LG S DZ Regular for Powerline"
+	colorscheme spacegray
+	let g:airline_symbols.space="\u3000"
+	let g:airline_theme="base16"
+else
+	set background=dark
+	let g:seoul256_background=233
+	let g:airline_theme="bubblegum"
+	colorscheme seoul256
+endif
 
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_no_startup_for_diff=1
@@ -69,14 +85,14 @@ let g:NERDTreeShowBookmarks=1
 let g:NERDTreeChDirMode=2 " change CWD whenever the tree root is changed
 let g:NERDTreeMouseMode=2 " need only one click to open directory by double click to open file
 let g:NERDTreeWinSize=28  " default 31
-let g:NERDTreeIgnore=['deps', '_build', '\.sublime-project$', '\.sublime-workspace$']
+let g:NERDTreeIgnore=['deps', '_build', '\.sublime-project$', '\.sublime-workspace$', 'node_modules', 'dist']
 nmap <C-m> <Plug>NERDTreeTabsToggle<CR>
 
 let g:user_emmet_leader_key='<C-J>'
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'dir':  '\v(\.git|\.hg|\.svn|node_modules)$',
   \ 'file': '\v\.(exe|so|dll|beam|class)$',
   \ }
 let g:ctrlp_extensions = ['funky']
@@ -145,7 +161,10 @@ autocmd FileType jproperties set commentstring=#%s
 autocmd FileType         php set commentstring=//%s
 
 " set default indentations
-autocmd FileType erlang set tabstop=4|set shiftwidth=4
-autocmd FileType   java set tabstop=4|set shiftwidth=4
-autocmd FileType groovy set tabstop=4|set shiftwidth=4
+autocmd FileType       erlang set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType         java set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType       groovy set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType   javascript set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType coffeescript set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType         json set tabstop=2 shiftwidth=2 expandtab
 
