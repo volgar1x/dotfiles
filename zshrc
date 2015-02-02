@@ -24,5 +24,13 @@ export DOFUS_VERSION=21
 export PATH="$PATH:$HOME/.rvm/bin"
 source "$HOME/.rvm/scripts/rvm"
 
+## Android
+export ANDROID_HOME="$HOME/android"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/tools"
+
 ## Aliases
 alias o='gnome-open'
+
+## Disable Jayatana in terminal session
+unset JAVA_TOOL_OPTIONS

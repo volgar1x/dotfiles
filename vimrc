@@ -41,6 +41,8 @@ Plug 'honza/vim-snippets'
 " Plug 'xolox/vim-session'
 Plug 'Shougo/vimproc'     " required by vimshell.vim
 Plug 'Shougo/vimshell.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'mpollmeier/vim-scalaConceal'
 
 call plug#end()
 
