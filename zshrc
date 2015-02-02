@@ -38,6 +38,11 @@ debug "load jvm version manager"
 debug "load ruby version manager"
 [[ -d "$HOME/.rvm" ]] && export PATH="$PATH:$HOME/.rvm/bin" && source "$HOME/.rvm/scripts/rvm"
 
+## Android
+export ANDROID_HOME="$HOME/android"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/tools"
+
 ## Nodejs version manager
 debug "load nodejs version manager"
 export NVM_DIR="/home/antoine/.nvm"
@@ -48,4 +53,3 @@ alias o='gnome-open'
 
 ## Disable JAyatana
 unset JAVA_TOOL_OPTIONS
-
