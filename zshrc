@@ -2,13 +2,16 @@
 ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="amuse"
 _Z_DATA="$HOME/.zdata"
-plugins=(git git-flow gradle zsh-syntax-highlighting z)
+plugins=(git git-flow gradle zsh-syntax-highlighting z node npm)
 source $ZSH/oh-my-zsh.sh
+
+[[ -d "$HOME/.bin" ]] && export PATH="$PATH:$HOME/.bin"
 
 ## IUT util classes
 #export CLASSPATH=~/iut.jar:~/ihmgui.jar:.
 
 ## Dofus version manager
+export DOFUS_INSTALL_BASE="$HOME/.dofus"
 export DOFUS_VERSION=21
 
 ## Erlang version manager
@@ -28,6 +31,10 @@ source "$HOME/.rvm/scripts/rvm"
 export ANDROID_HOME="$HOME/android"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$ANDROID_HOME/tools"
+
+## Nodejs version manager
+export NVM_DIR="/home/antoine/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ## Aliases
 alias o='gnome-open'

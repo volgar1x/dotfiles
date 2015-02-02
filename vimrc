@@ -144,6 +144,7 @@ imap <C-o> <Esc><C-o>
 " set default comment string
 autocmd FileType      groovy set commentstring=//%s
 autocmd FileType jproperties set commentstring=#%s
+autocmd FileType         php set commentstring=//%s
 
 " set default indentations
 autocmd FileType erlang set tabstop=4|set shiftwidth=4

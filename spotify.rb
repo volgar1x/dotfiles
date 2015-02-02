@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'rspotify'
 
 RSpotify.authenticate('174e2d16dcdd456b9a188cc2f2a3be98', '56340cd815994e93a79edd6fe4b961d3')
