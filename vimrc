@@ -48,6 +48,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mtscout6/vim-cjsx'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
