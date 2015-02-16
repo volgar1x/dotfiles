@@ -3,54 +3,66 @@ filetype off " required!
 
 let g:plug_threads = 8
 call plug#begin('~/.vim/plugged')
- 
+
+"Editor
+Plug 'Shougo/vimproc'     " required by vimshell.vim
+Plug 'Shougo/vimshell.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'bling/vim-airline'
-Plug 'junegunn/seoul256.vim'
-Plug 'ajh17/Spacegray.vim'
-Plug 'mattn/emmet-vim'
-Plug 'amdt/vim-niji'
-Plug 'scilab.vim'
-Plug 'whatyouhide/vim-gotham'
-Plug 'jimenezrick/vimerl'
-Plug 'ehamberg/vim-cute-erlang'
-Plug 'kien/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'mbbx6spp/vim-rebar'
-Plug 'elixir-lang/vim-elixir'
-Plug 'mattreduce/vim-mix'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-bundler'
-Plug 'Blackrush/lexima.vim'
-Plug 'tpope/vim-commentary'
-Plug 'groovy.vim'
-Plug 'tfnico/vim-gradle'
-Plug 'GEverding/vim-hocon'
 Plug 'junegunn/vim-easy-align'
 Plug 'mru.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'kien/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'Blackrush/lexima.vim'
+Plug 'tpope/vim-commentary'
+"Themes
+Plug 'nanotech/jellybeans.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'ajh17/Spacegray.vim'
+Plug 'whatyouhide/vim-gotham'
+"Snippets
+Plug 'mattn/emmet-vim'
 Plug 'vim-addon-mw-utils' " required by vim-snipmate
 Plug 'tlib'               " required by vim-snipmate
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-" Plug 'vim-misc'           " required by vim-session
-" Plug 'xolox/vim-session'
-Plug 'Shougo/vimproc'     " required by vimshell.vim
-Plug 'Shougo/vimshell.vim'
+"Ruby
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+"Lisp
+Plug 'amdt/vim-niji'
+"Scala
 Plug 'derekwyatt/vim-scala'
 Plug 'mpollmeier/vim-scalaConceal'
+Plug 'GEverding/vim-hocon'
+"Groovy
+Plug 'groovy.vim'
+Plug 'tfnico/vim-gradle'
+"JS
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mtscout6/vim-cjsx'
-Plug 'junegunn/goyo.vim'
 Plug 'trotzig/import-js'
+"Go
 Plug 'Blackrush/vim-gocode'
+"Erlang
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-compiler'
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+Plug 'ehamberg/vim-cute-erlang'
+Plug 'mbbx6spp/vim-rebar'
+"Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'mattreduce/vim-mix'
+"Scilab
+Plug 'scilab.vim'
 
 call plug#end()
 
