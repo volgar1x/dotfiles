@@ -49,6 +49,8 @@ Plug 'mxw/vim-jsx'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mtscout6/vim-cjsx'
 Plug 'junegunn/goyo.vim'
+Plug 'trotzig/import-js'
+Plug 'Blackrush/vim-gocode'
 
 call plug#end()
 
@@ -68,10 +70,8 @@ set encoding=UTF-8
 if has("gui_running")
 	set t_md=
 	set go-=TrL
-	set guifont="Meslo LG S DZ Regular for Powerline"
-	colorscheme spacegray
-	let g:airline_symbols.space="\u3000"
-	let g:airline_theme="base16"
+	set guifont="Meslo LG S DZ for Powerline 12"
+	colorscheme base16
 else
 	set background=dark
 	let g:seoul256_background=233
@@ -168,4 +168,5 @@ autocmd FileType       groovy set tabstop=4 shiftwidth=4 expandtab
 autocmd FileType   javascript set tabstop=4 shiftwidth=4 expandtab
 autocmd FileType coffeescript set tabstop=2 shiftwidth=2 expandtab
 autocmd FileType         json set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType        scala set tabstop=2 shiftwidth=2 expandtab
 
