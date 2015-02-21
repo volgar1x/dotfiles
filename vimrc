@@ -162,10 +162,10 @@ autocmd FileType jproperties set commentstring=#%s
 autocmd FileType         php set commentstring=//%s
 
 " set default indentations
-autocmd FileType       erlang set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType         java set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType       groovy set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType   javascript set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType coffeescript set tabstop=2 shiftwidth=2 expandtab
-autocmd FileType         json set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType     erlang set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType       java set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType     groovy set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType javascript set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType     coffee set tabstop=2 shiftwidth=2 expandtab
+autocmd FileType       json set tabstop=2 shiftwidth=2 expandtab
 
