@@ -16,6 +16,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mru.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/ctrlp.vim'
+Plug 'JazzCore/ctrlp-cmatcher', {'do': 'yes \| ./install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
@@ -75,23 +76,30 @@ syntax on
 set mouse=a
 set nu
 set smartindent
-set tabstop=2
-set shiftwidth=2
+set expandtab tabstop=2 shiftwidth=2
 set encoding=UTF-8
+set nowrap
 
 if has("gui_running")
+	set lines=31 columns=122
 	set t_md=
-	set go-=TrL
-	set guifont="Meslo LG S DZ for Powerline 12"
-	colorscheme base16
+	set go=
+	set guifont=Meslo\ LG\ M\ DZ\ Regular\ 9
+	set background=dark
+	let g:airline_theme='murmur'
+	colorscheme spacegray
 else
 	set background=dark
 	let g:seoul256_background=233
-	let g:airline_theme="bubblegum"
+	let g:airline_theme='bubblegum'
 	colorscheme seoul256
-endif
+	"really dont know why its know initializing correctly...
+	let g:airline_theme='murmur'
+	colorscheme spacegray
+endif 
 
 let g:nerdtree_tabs_open_on_console_startup=0
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_no_startup_for_diff=1
 let g:nerdtree_tabs_smart_startup_focus=1
 let g:NERDTreeShowBookmarks=1
@@ -103,6 +111,7 @@ nmap <C-m> <Plug>NERDTreeTabsToggle<CR>
 
 let g:user_emmet_leader_key='<C-J>'
 
+let g:ctrlp_match_func = {'match': 'matcher#cmatch'}
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v(\.git|\.hg|\.svn|node_modules)$',
@@ -170,15 +179,17 @@ imap <C-o> <Esc><C-o>
 
 " set default comment string
 autocmd FileType      groovy set commentstring=//%s
+autocmd FileType      python set commentstring=#%s
 autocmd FileType jproperties set commentstring=#%s
 autocmd FileType         php set commentstring=//%s
 
 " set default indentations
-autocmd FileType     erlang set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType       java set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType     groovy set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType javascript set tabstop=4 shiftwidth=4 expandtab
-autocmd FileType     coffee set tabstop=2 shiftwidth=2 expandtab
-autocmd FileType       json set tabstop=2 shiftwidth=2 expandtab
-autocmd FileType      scala set tabstop=2 shiftwidth=2 expandtab
-
+autocmd FileType     erlang set tabstop=4 shiftwidth=4
+autocmd FileType       java set tabstop=4 shiftwidth=4
+autocmd FileType     groovy set tabstop=4 shiftwidth=4
+autocmd FileType     python set tabstop=4 shiftwidth=4
+autocmd FileType javascript set tabstop=4 shiftwidth=4
+autocmd FileType     coffee set tabstop=2 shiftwidth=2
+autocmd FileType       json set tabstop=2 shiftwidth=2
+autocmd FileType      scala set tabstop=2 shiftwidth=2
+autocmd FileType        vim set tabstop=4 shiftwidth=4 noexpandtab
