@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+base=`dirname $(readlink -f $0)`/..
+app="$base/share/META-INF/AIR/application.xml"
+sed -e "s/<id>.*<\\/id>/<id>Dofus-$RANDOM<\\/id>/g" "$app".backup > "$app"
+"$base/bin/Dofus-bin"
