@@ -53,3 +53,6 @@ alias o='gnome-open'
 
 ## Disable JAyatana
 unset JAVA_TOOL_OPTIONS
+
+# FUCK
+alias fuck='eval $(thefuck $(fc -ln -1))'
