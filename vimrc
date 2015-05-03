@@ -79,6 +79,7 @@ set smartindent
 set expandtab tabstop=2 shiftwidth=2
 set encoding=UTF-8
 set nowrap
+set noswapfile
 
 if has("gui_running")
 	set lines=31 columns=122
