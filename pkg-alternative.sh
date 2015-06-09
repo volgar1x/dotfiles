@@ -9,10 +9,10 @@ for file in `ls $path/bin`; do
 		acc="$acc --slave /usr/bin/$file $file $path/bin/$file"
 	fi
 done
-for file in `ls $path/lib`; do
-  lib=`echo $file | sed 's/\(.*\)-.*\.so/\1.so/'`
-  acc="$acc --slave /usr/lib/$file $lib $path/lib/$file"
-done
+# for file in `ls $path/lib`; do
+#   lib=`echo $file | sed 's/\(.*\)-.*\.so/\1.so/'`
+#   acc="$acc --slave /usr/lib/$file $lib $path/lib/$file"
+# done
 
 updalt=`which update-alternatives`
 
