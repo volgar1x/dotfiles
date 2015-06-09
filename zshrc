@@ -45,7 +45,7 @@ export PATH="$PATH:$ANDROID_HOME/tools"
 
 ## Nodejs version manager
 debug "load nodejs version manager"
-export NVM_DIR="/home/antoine/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ## Aliases
@@ -78,3 +78,4 @@ export MANPATH="$MANPATH:/opt/emacs/share/man/"
 # Scala
 export PATH="$PATH:/opt/scala/2.11.6/bin:/opt/sbt/0.13.8/bin"
 export MANPATH="$MANPATH:/opt/scala/2.11.6/man"
+
