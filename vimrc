@@ -5,6 +5,7 @@ let g:plug_threads = 8
 call plug#begin('~/.vim/plugged')
 
 "Editor
+Plug 'CSApprox'
 Plug 'Shougo/vimproc'     " required by vimshell.vim
 Plug 'Shougo/vimshell.vim'
 Plug 'junegunn/goyo.vim'
@@ -20,7 +21,7 @@ Plug 'JazzCore/ctrlp-cmatcher', {'do': 'yes \| ./install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
-Plug 'Blackrush/lexima.vim'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 "Themes
 Plug 'nanotech/jellybeans.vim'
@@ -80,8 +81,11 @@ set expandtab tabstop=2 shiftwidth=2
 set encoding=UTF-8
 set nowrap
 set noswapfile
+set noeb vb t_vb=
+au GUIEnter * set vb t_vb=
 
 if has("gui_running")
+	set clipboard=unnamed
 	set lines=31 columns=122
 	set t_md=
 	set go=
