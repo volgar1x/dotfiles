@@ -23,6 +23,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-expand-region'
 "Themes
 Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
@@ -63,6 +64,7 @@ Plug 'mbbx6spp/vim-rebar'
 "Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
+Plug 'Frost/vim-eh-docs'
 "Scilab
 Plug 'scilab.vim'
 
