@@ -10,13 +10,15 @@ debug "load oh-my-zsh"
 ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="avit"
 _Z_DATA="$HOME/.zdata"
-plugins=(git git-flow gradle zsh-syntax-highlighting z node npm brew)
+plugins=(git git-flow gradle zsh-syntax-highlighting z node npm brew osx)
 source $ZSH/oh-my-zsh.sh
 
 [[ -d "$HOME/.bin" ]] && export PATH="$PATH:$HOME/.bin"
 
 ## IUT util classes
 #export CLASSPATH=~/iut.jar:~/ihmgui.jar:.
+
+export LC_CTYPE=en_US.UTF-8
 
 ## Dofus version manager
 export DOFUS_INSTALL_BASE="/opt/dofus"
@@ -36,7 +38,7 @@ debug "load jvm version manager"
 
 ## Ruby version manager
 debug "load ruby version manager"
-[[ -d "$HOME/.rvm" ]] && export PATH="$PATH:$HOME/.rvm/bin" && source "$HOME/.rvm/scripts/rvm"
+[[ -d "$HOME/.rvm" ]] && export PATH="$HOME/.rvm/bin:$PATH" && source "$HOME/.rvm/scripts/rvm"
 
 ## Android
 export ANDROID_HOME="$HOME/android"
@@ -64,8 +66,8 @@ export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 # Java
-export JAVA_HOME="$(dirname $(readlink -f $(which java)))/.."
-export MANPATH="$MANPATH:$JAVA_HOME/man"
+# export JAVA_HOME="$(dirname $(greadlink -f $(which java)))/.."
+# export MANPATH="$MANPATH:$JAVA_HOME/man"
 
 # Go
 export GOPATH="$HOME/Workspace/Goworkspace"
@@ -79,3 +81,4 @@ export MANPATH="$MANPATH:/opt/emacs/share/man/"
 export PATH="$PATH:/opt/scala/2.11.6/bin:/opt/sbt/0.13.8/bin"
 export MANPATH="$MANPATH:/opt/scala/2.11.6/man"
 
+export PATH="/usr/local/sbin:$PATH"

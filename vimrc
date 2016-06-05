@@ -5,18 +5,18 @@ let g:plug_threads = 8
 call plug#begin('~/.vim/plugged')
 
 "Editor
-Plug 'CSApprox'
 Plug 'Shougo/vimproc'     " required by vimshell.vim
 Plug 'Shougo/vimshell.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/vim-easy-align'
 Plug 'mru.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher', {'do': 'yes \| ./install.sh'}
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Lokaltog/vim-easymotion'
@@ -24,12 +24,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'terryma/vim-expand-region'
+Plug 'majutsushi/tagbar'
+Plug 'luochen1990/rainbow'
 "Themes
 Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'ajh17/Spacegray.vim'
 Plug 'whatyouhide/vim-gotham'
+Plug 'chriskempson/base16-vim'
 "Snippets
+Plug 'aperezdc/vim-template'
 Plug 'mattn/emmet-vim'
 Plug 'vim-addon-mw-utils' " required by vim-snipmate
 Plug 'tlib'               " required by vim-snipmate
@@ -38,8 +42,6 @@ Plug 'honza/vim-snippets'
 "Ruby
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
-"Lisp
-Plug 'amdt/vim-niji'
 "Scala
 Plug 'derekwyatt/vim-scala'
 Plug 'mpollmeier/vim-scalaConceal'
@@ -67,13 +69,16 @@ Plug 'mattreduce/vim-mix'
 Plug 'Frost/vim-eh-docs'
 "Scilab
 Plug 'scilab.vim'
+"Docker
+Plug 'ekalinin/Dockerfile.vim'
+"Python
+" Plug 'pfdevilliers/Pretty-Vim-Python'
 
 call plug#end()
 
 filetype plugin indent on " required!
 
 set laststatus=2
-let g:airline_powerline_fonts=1
 
 syntax on
 set mouse=a
@@ -88,22 +93,18 @@ au GUIEnter * set vb t_vb=
 
 if has("gui_running")
 	set clipboard=unnamed
-	set lines=31 columns=122
+	set lines=56 columns=179
 	set t_md=
 	set go=
-	set guifont=Meslo\ LG\ M\ DZ\ Regular\ 9
+	set guifont=mononoki:h14
 	set background=dark
 	let g:airline_theme='murmur'
 	colorscheme spacegray
 else
 	set background=dark
-	let g:seoul256_background=233
-	let g:airline_theme='bubblegum'
-	colorscheme seoul256
-	"really dont know why its know initializing correctly...
 	let g:airline_theme='murmur'
 	colorscheme spacegray
-endif 
+endif
 
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0
@@ -125,37 +126,33 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|beam|class)$',
   \ }
 let g:ctrlp_extensions = ['funky']
-imap <C-l> <Esc>:CtrlPFunky<CR>
-nmap <C-l> :CtrlPFunky<CR>
 
 let g:neocomplcache_enable_at_startup=1
 
 let g:session_autoload='yes'
 let g:session_autosave='yes'
 
-" delete current line
-nmap <C-k> dd
-imap <C-k> <Esc>ddi
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-n>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
-" duplicate current line
-nmap <C-y> yyp
-imap <C-y> <Esc>yypi
-
-" revert last change
-nmap <C-z> u
-imap <C-z> <Esc>ui
+let g:tagbar_type_xsd = {
+    \ 'ctagstype' : 'XML',
+    \ 'kinds'     : [
+        \ 'r:records',
+        \ 't:templates',
+        \ 'm:menuitems'
+    \ ]
+\ }
 
 " Go to right tab
-imap <M-Right> <Esc>:tabnext<CR>i
-nmap <M-Right> :tabnext<CR>
+imap <C-k> <Esc>:tabnext<CR>i
+nmap <C-k> :tabnext<CR>
 
 " Go to left tab
-imap <M-Left> <Esc>:tabprevious<CR>i
-nmap <M-Left> :tabprevious<CR>
-
-" Move current line up or downwards
-imap <M-Up> <Esc>:m .-2<CR>i
-imap <M-Down> <Esc>:m .+1<CR>i
+imap <C-j> <Esc>:tabprevious<CR>i
+nmap <C-j> :tabprevious<CR>
 
 " Go to left window
 imap <C-Left> <Esc><C-w>hi
@@ -189,10 +186,12 @@ autocmd FileType      groovy set commentstring=//%s
 autocmd FileType      python set commentstring=#%s
 autocmd FileType jproperties set commentstring=#%s
 autocmd FileType         php set commentstring=//%s
+autocmd FileType          cs set commentstring=//%s
 
 " set default indentations
 autocmd FileType     erlang set tabstop=4 shiftwidth=4
 autocmd FileType       java set tabstop=4 shiftwidth=4
+autocmd FileType         cs set tabstop=4 shiftwidth=4
 autocmd FileType     groovy set tabstop=4 shiftwidth=4
 autocmd FileType     python set tabstop=4 shiftwidth=4
 autocmd FileType javascript set tabstop=4 shiftwidth=4
@@ -200,3 +199,4 @@ autocmd FileType     coffee set tabstop=2 shiftwidth=2
 autocmd FileType       json set tabstop=2 shiftwidth=2
 autocmd FileType      scala set tabstop=2 shiftwidth=2
 autocmd FileType        vim set tabstop=4 shiftwidth=4 noexpandtab
+autocmd FileType        xml set tabstop=4 shiftwidth=4
