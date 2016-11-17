@@ -32,6 +32,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'ajh17/Spacegray.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 "Snippets
 Plug 'aperezdc/vim-template'
 Plug 'mattn/emmet-vim'
@@ -50,11 +51,13 @@ Plug 'GEverding/vim-hocon'
 Plug 'groovy.vim'
 Plug 'tfnico/vim-gradle'
 "JS
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'mtscout6/vim-cjsx'
+" Plug 'trotzig/import-js'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mtscout6/vim-cjsx'
-Plug 'trotzig/import-js'
+Plug 'flowtype/vim-flow'
 "Go
 Plug 'Blackrush/vim-gocode'
 "Erlang
@@ -73,6 +76,7 @@ Plug 'scilab.vim'
 Plug 'ekalinin/Dockerfile.vim'
 "Python
 " Plug 'pfdevilliers/Pretty-Vim-Python'
+" Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
@@ -89,6 +93,7 @@ set encoding=UTF-8
 set nowrap
 set noswapfile
 set noeb vb t_vb=
+set cursorline
 au GUIEnter * set vb t_vb=
 
 if has("gui_running")
@@ -98,12 +103,12 @@ if has("gui_running")
 	set go=
 	set guifont=mononoki:h14
 	set background=dark
-	let g:airline_theme='murmur'
-	colorscheme spacegray
+	let g:airline_theme='gruvbox'
+	colorscheme gruvbox
 else
 	set background=dark
-	let g:airline_theme='murmur'
-	colorscheme spacegray
+	let g:airline_theme='gruvbox'
+	colorscheme gruvbox
 endif
 
 let g:nerdtree_tabs_open_on_console_startup=0
@@ -200,3 +205,5 @@ autocmd FileType       json set tabstop=2 shiftwidth=2
 autocmd FileType      scala set tabstop=2 shiftwidth=2
 autocmd FileType        vim set tabstop=4 shiftwidth=4 noexpandtab
 autocmd FileType        xml set tabstop=4 shiftwidth=4
+
+autocmd BufNewFile,BufRead *.json set ft=javascript
