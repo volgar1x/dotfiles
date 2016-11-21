@@ -1,4 +1,5 @@
-DEBUG=true
+#!/usr/bin/env zsh
+DEBUG=false
 function debug() {
 	if [[ "$DEBUG" == true ]]; then
 		echo "$@"
@@ -8,7 +9,8 @@ function debug() {
 ## ZSH and oh-my-zsh
 debug "load oh-my-zsh"
 ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="avit"
+ZSH_CUSTOM="$HOME/Workspace/dotfiles/oh-my-zsh"
+ZSH_THEME="achauvin"
 _Z_DATA="$HOME/.zdata"
 plugins=(git git-flow gradle zsh-syntax-highlighting z node npm brew osx)
 source $ZSH/oh-my-zsh.sh
@@ -41,7 +43,7 @@ debug "load ruby version manager"
 [[ -d "$HOME/.rvm" ]] && export PATH="$HOME/.rvm/bin:$PATH" && source "$HOME/.rvm/scripts/rvm"
 
 ## Android
-export ANDROID_HOME="$HOME/android"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$ANDROID_HOME/tools"
 
@@ -81,4 +83,25 @@ export MANPATH="$MANPATH:/opt/emacs/share/man/"
 export PATH="$PATH:/opt/scala/2.11.6/bin:/opt/sbt/0.13.8/bin"
 export MANPATH="$MANPATH:/opt/scala/2.11.6/man"
 
+# PHP
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
 export PATH="/usr/local/sbin:$PATH"
+
+export PGDATA="/usr/local/var/postgres"
+
+export PATH="./node_modules/.bin:$PATH"
+
+if [[ -d "$HOME/.zshrc.d" ]]; then
+  for file in "$(find ~/.zshrc.d -type f)"; do
+    source "$file"
+  done
+fi
+
+if which docker-machine > /dev/null; then
+  machines=`docker-machine ls -q --filter state=Running --filter driver=virtualbox`
+  if [[ -n "$machines" ]]; then
+    machine=`echo "$machines" | head -n1`
+    eval $(docker-machine env "$machine")
+  fi
+fi

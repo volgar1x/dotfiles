@@ -101,7 +101,7 @@ if has("gui_running")
 	set lines=56 columns=179
 	set t_md=
 	set go=
-	set guifont=mononoki:h14
+	set guifont="Fantasque Sans Mono:h14"
 	set background=dark
 	let g:airline_theme='gruvbox'
 	colorscheme gruvbox
