@@ -106,7 +106,8 @@ module.exports = {
     'hyper-statusline',
     'hyperterm-mactabs',
     'hyperterm-tab-icons',
-    'hypercwd'
+    'hypercwd',
+    'hyperterm-bold-tab'
   ],
 
   // in development, you can create a directory under
