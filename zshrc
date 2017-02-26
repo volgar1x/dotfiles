@@ -5,6 +5,7 @@ function debug() {
 		echo "$@"
 	fi
 }
+export EDITOR="vim"
 
 ## ZSH and oh-my-zsh
 debug "load oh-my-zsh"
@@ -54,6 +55,7 @@ export NVM_DIR="$HOME/.nvm"
 
 ## Aliases
 alias o='gnome-open'
+alias rn='react-native'
 
 ## Disable JAyatana
 unset JAVA_TOOL_OPTIONS
@@ -91,6 +93,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PGDATA="/usr/local/var/postgres"
 
 export PATH="./node_modules/.bin:$PATH"
+export PATH="./vendor/bin:$PATH"
 
 if [[ -d "$HOME/.zshrc.d" ]]; then
   for file in "$(find ~/.zshrc.d -type f)"; do
@@ -105,3 +108,9 @@ if which docker-machine > /dev/null; then
     eval $(docker-machine env "$machine")
   fi
 fi
+
+rm ~/.zcompdump*
+
+# python "$HOME/.motivate/motivate"
+
+~/.motivate/motivate | cowsay -W 70 -f bong | lolcat -t
