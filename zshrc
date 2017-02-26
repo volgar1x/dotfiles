@@ -11,7 +11,7 @@ export EDITOR="vim"
 debug "load oh-my-zsh"
 ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/Workspace/dotfiles/oh-my-zsh"
-ZSH_THEME="achauvin"
+ZSH_THEME="imajes"
 _Z_DATA="$HOME/.zdata"
 plugins=(git git-flow gradle zsh-syntax-highlighting z node npm brew osx)
 source $ZSH/oh-my-zsh.sh
