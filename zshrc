@@ -11,7 +11,7 @@ export EDITOR="vim"
 debug "load oh-my-zsh"
 ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/Workspace/dotfiles/oh-my-zsh"
-ZSH_THEME="achauvin2"
+ZSH_THEME="avit"
 _Z_DATA="$HOME/.zdata"
 plugins=(git git-flow gradle zsh-syntax-highlighting z node npm brew osx)
 source $ZSH/oh-my-zsh.sh
@@ -115,3 +115,7 @@ rm ~/.zcompdump*
 
 ~/.motivate/motivate | cowsay -W 70 -f bong | lolcat -t
 echo
+
+export REACT_EDITOR="code"
+
+export PATH="$PATH:$(yarn global bin)"
