@@ -119,3 +119,5 @@ echo
 export REACT_EDITOR="code"
 
 export PATH="$PATH:$(yarn global bin)"
+
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"

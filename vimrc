@@ -11,7 +11,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'mhinz/vim-startify'
+  Plug 'jpo/vim-railscasts-theme'
+  Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 let mapleader=','
 let g:airline#extensions#tabline#enabled = 1
+
+colo railscasts
+let g:airline_theme='distinguished'
