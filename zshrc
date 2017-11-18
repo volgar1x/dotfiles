@@ -13,7 +13,10 @@ ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/Workspace/dotfiles/oh-my-zsh"
 ZSH_THEME="avit"
 _Z_DATA="$HOME/.zdata"
-plugins=(git git-flow gradle zsh-syntax-highlighting z node npm brew osx)
+plugins=(git git-flow gradle zsh-syntax-highlighting z node npm) 
+if [ `uname` = "Darwin" ]; then
+  plugins="$plugins brew osx"
+fi
 source $ZSH/oh-my-zsh.sh
 
 [[ -d "$HOME/.bin" ]] && export PATH="$PATH:$HOME/.bin"
@@ -64,10 +67,12 @@ unset JAVA_TOOL_OPTIONS
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
 # Homebrew
-export LINUXBREW_CELLAR="/opt/linuxbrew/Cellar"
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+if which brew > /dev/null 2>&1; then
+  export LINUXBREW_CELLAR="/opt/linuxbrew/Cellar"
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
 
 # Java
 # export JAVA_HOME="$(dirname $(greadlink -f $(which java)))/.."
@@ -85,11 +90,6 @@ export MANPATH="$MANPATH:/opt/emacs/share/man/"
 export PATH="$PATH:/opt/scala/2.11.6/bin:/opt/sbt/0.13.8/bin"
 export MANPATH="$MANPATH:/opt/scala/2.11.6/man"
 
-# PHP
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-
-export PATH="/usr/local/sbin:$PATH"
-
 export PGDATA="/usr/local/var/postgres"
 
 export PATH="./node_modules/.bin:$PATH"
@@ -101,7 +101,7 @@ if [[ -d "$HOME/.zshrc.d" ]]; then
   done
 fi
 
-if which docker-machine > /dev/null; then
+if which docker-machine > /dev/null 2>&1; then
   machines=`docker-machine ls -q --filter state=Running --filter driver=virtualbox`
   if [[ -n "$machines" ]]; then
     machine=`echo "$machines" | head -n1`
@@ -113,8 +113,10 @@ rm ~/.zcompdump*
 
 # python "$HOME/.motivate/motivate"
 
-~/.motivate/motivate | cowsay -W 70 -f bong | lolcat -t
-echo
+if [ -d "$HOME/.motivate" ] && [ -f "$HOME/.motivate/motivate" ]; then
+  ~/.motivate/motivate | cowsay -W 70 -f bong | lolcat -t
+  echo
+fi
 
 export REACT_EDITOR="code"
 
