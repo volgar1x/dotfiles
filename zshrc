@@ -7,6 +7,11 @@ function debug() {
 }
 export EDITOR="vim"
 
+if which nvim > /dev/null 2>&1; then
+  alias vim="nvim"
+  export EDITOR=`which nvim`
+fi
+
 ## ZSH and oh-my-zsh
 debug "load oh-my-zsh"
 ZSH="$HOME/.oh-my-zsh"
