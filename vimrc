@@ -16,7 +16,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'mhinz/vim-startify'
-  Plug 'jpo/vim-railscasts-theme'
+  "Plug 'jpo/vim-railscasts-theme'
+  Plug 'nanotech/jellybeans.vim'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'Valloric/YouCompleteMe'
   Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -26,7 +27,8 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 "Appearance
-colo railscasts
+"colo railscasts
+colo jellybeans
 let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -47,3 +49,4 @@ if has('nvim')
   tnoremap <Esc> <C-\><C-n>
 endif
 
+"vim: sw=2 ts=2 et
