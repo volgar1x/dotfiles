@@ -103,7 +103,7 @@ fi
 
 if which docker-machine > /dev/null; then
   machines=`docker-machine ls -q --filter state=Running --filter driver=virtualbox`
-  if [[ -n "$machines" ]]; then
+  if [[ -n "$machines" ]] && [[ "$machines" != "machine does not exist" ]]; then
     machine=`echo "$machines" | head -n1`
     eval $(docker-machine env "$machine")
   fi

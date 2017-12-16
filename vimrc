@@ -32,9 +32,12 @@ colo jellybeans
 let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 
+"Ctrl-p
+let g:ctrlp_working_path_mode = ''
+
 "Pandoc Options
-let g:pandoc#command#autoexec_command = "Pandoc! pdf"
-let g:pandoc#command#custom_open = "Skim"
+let g:pandoc#command#autoexec_on_writes = 1
+let g:pandoc#command#autoexec_command = "Pandoc pdf"
 
 "Common VIM GUI options
 if has('gui_running')
@@ -47,6 +50,15 @@ endif
 "NeoVim options
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
+endif
+
+if has('gui_vimr') || has('gui_running')
+  map <A-Up> <C-w>k
+  map <A-Down> <C-w>j
+  map <A-Left> <C-w>h
+  map <A-Right> <C-w>l
+  map <C-k> :tabnext<CR>
+  map <C-j> :tabprevious<CR>
 endif
 
 "vim: sw=2 ts=2 et
