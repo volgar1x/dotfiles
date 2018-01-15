@@ -36,8 +36,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_working_path_mode = ''
 
 "Pandoc Options
-let g:pandoc#command#autoexec_on_writes = 1
-let g:pandoc#command#autoexec_command = "Pandoc pdf"
+let g:pandoc#command#autoexec_on_writes = 0
+"let g:pandoc#command#autoexec_command = "Pandoc pdf"
 
 "Common VIM GUI options
 if has('gui_running')
