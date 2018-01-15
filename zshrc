@@ -13,7 +13,10 @@ ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/Workspace/dotfiles/oh-my-zsh"
 ZSH_THEME="avit"
 _Z_DATA="$HOME/.zdata"
-plugins=(git git-flow gradle zsh-syntax-highlighting z node npm brew osx)
+plugins=(git git-flow gradle zsh-syntax-highlighting z node npm)
+if [[ `uname` = "Darwin" ]]; then
+  plugins="$plugins osx"
+fi
 source $ZSH/oh-my-zsh.sh
 
 [[ -d "$HOME/.bin" ]] && export PATH="$PATH:$HOME/.bin"
@@ -64,10 +67,12 @@ unset JAVA_TOOL_OPTIONS
 alias fuck='eval $(thefuck $(fc -ln -1))'
 
 # Homebrew
-export LINUXBREW_CELLAR="/opt/linuxbrew/Cellar"
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+if [[ -d "$HOME/.linuxbrew" ]]; then
+  export LINUXBREW_CELLAR="/opt/linuxbrew/Cellar"
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
 
 # Java
 # export JAVA_HOME="$(dirname $(greadlink -f $(which java)))/.."
@@ -86,7 +91,9 @@ export PATH="$PATH:/opt/scala/2.11.6/bin:/opt/sbt/0.13.8/bin"
 export MANPATH="$MANPATH:/opt/scala/2.11.6/man"
 
 # PHP
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+if which brew > /dev/null 2>&1; then
+  export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+fi
 
 export PATH="/usr/local/sbin:$PATH"
 
@@ -101,7 +108,7 @@ if [[ -d "$HOME/.zshrc.d" ]]; then
   done
 fi
 
-if which docker-machine > /dev/null; then
+if which docker-machine > /dev/null 2>&1; then
   machines=`docker-machine ls -q --filter state=Running --filter driver=virtualbox`
   if [[ -n "$machines" ]] && [[ "$machines" != "machine does not exist" ]]; then
     machine=`echo "$machines" | head -n1`
@@ -120,7 +127,9 @@ fi
 
 export REACT_EDITOR="code"
 
-export PATH="$PATH:$(yarn global bin)"
+if which yarn > /dev/null 2>&1; then
+  export PATH="$PATH:$(yarn global bin)"
+fi
 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
