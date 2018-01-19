@@ -11,7 +11,7 @@ export EDITOR="vim"
 debug "load oh-my-zsh"
 ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$HOME/Workspace/dotfiles/oh-my-zsh"
-ZSH_THEME="avit"
+ZSH_THEME="kolo"
 _Z_DATA="$HOME/.zdata"
 plugins=(git git-flow gradle zsh-syntax-highlighting z node npm)
 if [[ `uname` = "Darwin" ]]; then
