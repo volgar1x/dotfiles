@@ -7,6 +7,10 @@ function debug() {
 }
 export EDITOR="vim"
 
+if [[ "$DEBUG" = "true" ]]; then
+  set -x
+fi
+
 ## ZSH and oh-my-zsh
 debug "load oh-my-zsh"
 ZSH="$HOME/.oh-my-zsh"
@@ -15,7 +19,7 @@ ZSH_THEME="kolo"
 _Z_DATA="$HOME/.zdata"
 plugins=(git git-flow gradle zsh-syntax-highlighting z node npm)
 if [[ `uname` = "Darwin" ]]; then
-  plugins="$plugins osx"
+  plugins+=(osx)
 fi
 source $ZSH/oh-my-zsh.sh
 
