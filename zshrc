@@ -143,3 +143,5 @@ if which nvim > /dev/null 2>&1; then
 else
   export EDITOR="vim"
 fi
+
+export GNUPGHOME="~/Nextcloud/gpg"

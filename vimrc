@@ -17,14 +17,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
   Plug 'mhinz/vim-startify'
-  "Plug 'jpo/vim-railscasts-theme'
   Plug 'nanotech/jellybeans.vim'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'Valloric/YouCompleteMe'
-  Plug 'vim-pandoc/vim-pandoc-syntax'
-  Plug 'vim-pandoc/vim-pandoc'
   Plug 'easymotion/vim-easymotion'
   Plug 'godlygeek/tabular'
+
+  if has('python')
+    Plug 'Valloric/YouCompleteMe'
+  endif
 call plug#end()
 
 "Appearance
