@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'easymotion/vim-easymotion'
   Plug 'godlygeek/tabular'
+  Plug 'scrooloose/nerdtree'
+  Plug 'leafgarland/typescript-vim'
 
   if has('python')
     Plug 'Valloric/YouCompleteMe'
