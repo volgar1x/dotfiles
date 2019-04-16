@@ -52,7 +52,11 @@ let g:ctrlp_working_path_mode = ''
 "Common VIM GUI options
 if has('gui_running')
   behave xterm
-  set guifont=Iosevka\ SS09\ 10
+  if has('mac')
+    set guifont=Iosevka:h14
+  elseif has('linux')
+    set guifont=Iosevka\ SS09\ 10
+  endif
   set guioptions=e
   set mousemodel=popup
   set lines=38 columns=130
