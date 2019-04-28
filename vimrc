@@ -70,9 +70,9 @@ endif
 
 if has('gui_vimr') || has('gui_running')
   "split horizontally
-  map <A-d> :sp<CR>
+  map <C-d> :sp<CR>
   "split vertically
-  map <A-S-d> :vs<CR>
+  map <C-S-d> :vs<CR>
 
   "go to right tab
   map <C-k> :tabnext<CR>
@@ -80,9 +80,11 @@ if has('gui_vimr') || has('gui_running')
   map <C-j> :tabprevious<CR>
 
   "open a terminal vertically
-  map <C-t> :vs<CR>:terminal ++curwin<CR>
+  map <C-t> :terminal<CR>
+  map <C-S-t> :vertical terminal<CR>
   "open a file navigator vertically
-  map <C-o> :vs<CR>:e .<CR>
+  map <C-o> :sp<CR>:e .<CR>
+  map <C-S-o> :vs<CR>:e .<CR>
 endif
 
 au FileType gitcommit setlocal nonu
