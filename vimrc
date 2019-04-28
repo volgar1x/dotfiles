@@ -7,6 +7,7 @@ set number                     "show line numbers
 set smartindent                "smart indentation (somehow)
 set splitbelow splitright      "i like it more when it splits below and right
 set clipboard=unnamed          "use system clipboard (most of the time)
+set backspace=indent,eol,start "or else it doesn't work on iTerm2
 let mapleader=','              "you can do keys ,c<Space> to toggle comments
 
 "prevent polluting vim temporary files in vcs trees
