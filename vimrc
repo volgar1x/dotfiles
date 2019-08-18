@@ -52,7 +52,7 @@ endif
 colo onehalfdark
 let g:airline_theme='onehalfdark'
 hi CursorLine term=NONE cterm=NONE
-hi Normal ctermbg=NONE
+hi Normal ctermbg=NONE guibg=NONE
 
 "let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
@@ -100,7 +100,9 @@ if has('gui_vimr') || has('gui_running')
 endif
 
 au FileType gitcommit setlocal nonu
-au TerminalOpen * setlocal nonu
+if !has('nvim')
+  au TerminalOpen * setlocal nonu
+endif
 
 tmap <silent> <ScrollWheelUp> <c-w>N<cr>
 

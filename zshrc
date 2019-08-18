@@ -15,5 +15,14 @@ export LC_CTYPE=en_US.UTF-8
 export PATH="./node_modules/.bin:$PATH" # node
 export PATH="./vendor/bin:$PATH" # composer
 
-export GNUPGHOME="~/Nextcloud/gpg"
+export GNUPGHOME="~/MEGAsync/gpg"
 export GPG_TTY=$(tty)
+
+if which neofetch >/dev/null 2>&1; then
+  neofetch
+fi
+
+if which xclip >/dev/null 2>&1; then
+  alias pbcopy="xclip -sel clip"
+  alias pbpaste="xclip -o"
+fi
