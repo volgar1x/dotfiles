@@ -118,3 +118,5 @@ nnoremap <silent> <M-Down> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-Up> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-Right> :TmuxNavigateRight<cr>
 "nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+map ; :
