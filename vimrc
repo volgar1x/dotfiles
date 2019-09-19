@@ -16,7 +16,7 @@ set undodir=~/.vim/tmp//,/tmp//
 
 "Extensions
 call plug#begin('~/.vim/plugged')
-  Plug 'vim-airline/vim-airline'
+  Plug 'itchyny/lightline.vim'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'Raimondi/delimitMate'
   Plug 'scrooloose/nerdcommenter'
@@ -50,7 +50,8 @@ if exists('+termguicolors')
   set termguicolors
 endif
 colo onehalfdark
-let g:airline_theme='onehalfdark'
+set laststatus=2 noshowmode
+let g:lightline = { 'colorscheme': 'one' }
 hi CursorLine term=NONE cterm=NONE
 hi Normal ctermbg=NONE guibg=NONE
 
