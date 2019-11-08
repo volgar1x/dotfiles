@@ -26,3 +26,9 @@ if which xclip >/dev/null 2>&1; then
   alias pbcopy="xclip -sel clip"
   alias pbpaste="xclip -o"
 fi
+
+# usage: pwcopy      -- generates, print, and copy into clipboard a 32 characters long secure password
+# usage: pwcopy 10   -- generates, print, and copy into clipboard a 10 characters long secure password
+pwcopy() {
+  pwgen -sN1 ${1:-32} ${@[@]:2} | head -c-1 | tee /dev/stderr | pbcopy
+}
