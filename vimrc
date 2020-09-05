@@ -72,6 +72,7 @@ if has('gui_running')
   set guioptions=e
   set mousemodel=popup
   set lines=38 columns=130
+  set background=dark
 endif
 
 "NeoVim options
